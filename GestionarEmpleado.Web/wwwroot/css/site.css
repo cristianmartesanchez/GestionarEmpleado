@@ -1,0 +1,33 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.custom-image-input {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 8px 12px;
+}
+
+.resized-image {
+    max-width: 100px;
+    max-height: 100px;
+    height: auto;
+    width: auto;
+}

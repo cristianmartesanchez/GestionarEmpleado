@@ -1,0 +1,114 @@
+﻿@model GestionarEmpleado.Domain.EntitiesDto.EmpleadoDto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Editar Empleado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="Id" type="hidden" />
+            <div class="row">
+                <div class="col-md-4">
+                    @if(Model.Fotografia != null)
+                    {
+                        <img src="data:image/png;base64,@(Convert.ToBase64String(Model.Fotografia))" alt="Imagen" class="resized-image" />
+                    }                    
+                    <div class="form-group">
+                        <label for="newFotografia" class="control-label"></label>
+                        <input name="newFotografia" id="newFotografia" type="file" accept="image/*" class="form-control custom-image-input" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="Apellido" class="control-label"></label>
+                    <input asp-for="Apellido" class="form-control" />
+                    <span asp-validation-for="Apellido" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="PuestoId" class="control-label">Puesto</label>
+                    <select asp-for="PuestoId"
+                            class="form-control"
+                            asp-items="@(new SelectList(ViewBag.Puestos,"Id", "Nombre"))">
+                    </select>
+                    <span asp-validation-for="PuestoId" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="Telefono" class="control-label"></label>
+                    <input asp-for="Telefono" class="form-control" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FechaNacimiento" class="control-label">Fecha de Nacimiento</label>
+                    <input asp-for="FechaNacimiento" type="date" class="form-control" />
+                    <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FechaContratacion" class="control-label">Fecha de Contratación</label>
+                    <input asp-for="FechaContratacion" type="date" class="form-control" />
+                    <span asp-validation-for="FechaContratacion" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="Direccion" class="control-label"></label>
+                    <input asp-for="Direccion" class="form-control" />
+                    <span asp-validation-for="Direccion" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="CorreoElectronico" class="control-label"></label>
+                    <input asp-for="CorreoElectronico" class="form-control" />
+                    <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="EstadoId" class="control-label">Estado</label>
+                    <select asp-for="EstadoId"
+                            class="form-control"
+                            asp-items="@(new SelectList(ViewBag.Estados,"Id", "Nombre"))">
+                    </select>
+                    <span asp-validation-for="EstadoId" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class=" col-md-6 form-group">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<dvi class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4">
+                <a asp-action="Create" class="btn btn-success">Crear Empleado</a>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <table id="DataTableEmpleado" class="display" style="width:100%"></table>
+            </div>
+        </div>
+    </div>
+</dvi>
+
+
+
+
+
+@section scripts{
+    <script src="~/js/empleado.js"></script>
+}
